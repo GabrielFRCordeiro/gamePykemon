@@ -1,5 +1,6 @@
 from flet import (UserControl, Image, Text, ResponsiveRow, Column,
-                  alignment, MainAxisAlignment, Row, CrossAxisAlignment)
+                  alignment, MainAxisAlignment, Row, CrossAxisAlignment,
+                  Container)
 
 
 class ViewStarters(UserControl):
@@ -7,9 +8,9 @@ class ViewStarters(UserControl):
         super().__init__()
         self.img_logo = Image('img_logo.png')
         self.text = Text('Choose your Pykemon!')
-        self.img_icon_bulbasaur = Image('img_icon_bulbasaur.png')
-        self.img_icon_charmander = Image('img_icon_charmander.png')
-        self.img_icon_squirtle = Image('img_icon_squirtle.png')
+        self.img_icon_bulbasaur = Container(Image('img_icon_bulbasaur.png'))
+        self.img_icon_charmander = Container(Image('img_icon_charmander.png'))
+        self.img_icon_squirtle = Container(Image('img_icon_squirtle.png'))
 
     def build(self):
         layout = ResponsiveRow(
