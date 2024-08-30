@@ -10,6 +10,9 @@ class ControllerStarters:
         self.img_icon_bulbasaur.on_hover = self.change_icon_bulbasaur
         self.img_icon_charmander.on_hover = self.change_icon_charmander
         self.img_icon_squirtle.on_hover = self.change_icon_squirtle
+        self.img_icon_bulbasaur.on_click = self.battle_charmander
+        self.img_icon_charmander.on_click = self.battle_squirtle
+        self.img_icon_squirtle.on_click = self.battle_bulbasaur
 
     def change_icon_bulbasaur(self, e):
         if self.img_icon_bulbasaur.content.src == 'img_icon_bulbasaur.png':
@@ -34,3 +37,12 @@ class ControllerStarters:
         else:
             self.img_icon_squirtle.content.src = 'img_icon_squirtle.png'
             self.img_icon_squirtle.update()
+
+    def battle_charmander(self, e):
+        self.starters_screen.page.go('/vs-charmander')
+
+    def battle_squirtle(self, e):
+        self.starters_screen.page.go('/vs-squirtle')
+
+    def battle_bulbasaur(self, e):
+        self.starters_screen.page.go('/vs-bulbasaur')
