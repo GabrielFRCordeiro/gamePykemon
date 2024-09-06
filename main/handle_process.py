@@ -1,6 +1,4 @@
-from flet import Page, View
-from pygame import mixer
-from time import sleep
+from flet import Page, View, Audio
 from main.constructor.constructorStarters import constructor_starters
 from main.constructor.constructorVsCharmander import constructorVsCharmander
 from main.constructor.constructorVsSquirtle import constructorVsSquirtle
@@ -12,6 +10,7 @@ def start(page: Page):
     page.fonts = {
         'PressStart2P': 'fonts/PressStart2P-Regular.ttf'
     }
+    soundtrack_starters = Audio('assets/soundtrack_starters.mp3', autoplay=True)
 
     def change_route(route):
         page.views.clear()
@@ -25,7 +24,11 @@ def start(page: Page):
             )
         )
 
+        if page.route == '/':
+            page.overlay.append(soundtrack_starters)
+
         if page.route == '/vs-charmander':
+            soundtrack_starters.pause()
             page.views.append(
                 View(
                     route='/vs-charmander',
@@ -36,6 +39,7 @@ def start(page: Page):
             )
 
         if page.route == '/vs-squirtle':
+            soundtrack_starters.pause()
             page.views.append(
                 View(
                     route='/vs-squirtle',
@@ -46,6 +50,7 @@ def start(page: Page):
             )
 
         if page.route == '/vs-bulbasaur':
+            soundtrack_starters.pause()
             page.views.append(
                 View(
                     route='/vs-bulbasaur',
@@ -56,10 +61,6 @@ def start(page: Page):
             )
 
         page.update()
-        mixer.init()
-        mixer.Sound('assets/soundtrack_starters.mp3').play()
-        while mixer.get_busy():
-            sleep(1)
 
     page.on_route_change = change_route
     page.go(page.route)
