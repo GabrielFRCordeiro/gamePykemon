@@ -7,7 +7,7 @@ class ViewStarters(UserControl):
     def __init__(self):
         super().__init__()
         self.img_logo = Image('img_logo.png')
-        self.text = Text('Choose your Pykemon!')
+        self.text = Text('Choose your Pykemon!', font_family='PressStart2P')
         self.img_icon_bulbasaur = Container(Image('img_icon_bulbasaur.png'))
         self.img_icon_charmander = Container(Image('img_icon_charmander.png'))
         self.img_icon_squirtle = Container(Image('img_icon_squirtle.png'))
