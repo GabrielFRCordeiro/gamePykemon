@@ -2,8 +2,8 @@ from views.viewStarters import ViewStarters
 from controller.controllerStarters import ControllerStarters
 
 
-def constructorStarters():
-    startersScreen = ViewStarters()
-    controllerStarters = ControllerStarters(startersScreen)
+def constructor_starters():
+    starters_screen = ViewStarters()
+    controller_starters = ControllerStarters(starters_screen)
 
-    return startersScreen
+    return starters_screen
